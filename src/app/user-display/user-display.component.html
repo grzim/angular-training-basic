@@ -1,5 +1,5 @@
-<div>
-  first user: {{firstUser}}
+<div *ngFor="let userName of usersNames; last as last" [class.highlight]="last">
+  name: {{userName}}
 </div>
 
 <div>

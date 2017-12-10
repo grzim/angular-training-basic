@@ -9,7 +9,7 @@ import { UsersService } from '../users/users.service'
 export class UserDisplayComponent implements OnInit {
 
   @Input() filteredUser: string;
-  @Input() firstUser: string;
+  @Input() usersNames: Array<string>;
   constructor() {
   }
 

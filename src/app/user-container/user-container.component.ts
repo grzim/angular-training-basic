@@ -9,15 +9,13 @@ import { UsersService } from '../users/users.service'
 export class UserContainerComponent implements OnInit {
 
   public filteredUser;
-  public firstUser;
+  public usersNames;
   constructor(public usersService: UsersService) {
-      this.firstUser = this.usersService.getAllUsers()[0].name;
-      console.log(this.firstUser  )
+      this.usersNames = this.usersService.getAllUsers().map(({name}) => name);
   }
 
   sortFnChange(sortFn) {
     this.filteredUser = this.usersService.getAllUsers().sort(sortFn)[0].name;
-    console.log(this.filteredUser)
   }
   ngOnInit() {
   }
