@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core'
 import { UsersService } from '../users/users.service'
 
 @Component({
@@ -8,14 +8,9 @@ import { UsersService } from '../users/users.service'
 })
 export class UserDisplayComponent implements OnInit {
 
-  public firstUser;
-  public firstFromSorted = '';
-  constructor(private usersService: UsersService) {
-    this.firstUser = this.usersService.getAllUsers()[0].name;
-  }
-  sortUsersBy(propName: string) {
-    const sortFn = (a, b) => a[propName] > b[propName] ? 1 : -1;
-    this.firstFromSorted = this.usersService.getAllUsers().sort(sortFn)[0].name;
+  @Input() filteredUser: string;
+  @Input() firstUser: string;
+  constructor() {
   }
 
   ngOnInit() {
