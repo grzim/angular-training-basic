@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core'
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core'
 import { UsersService } from '../users/users.service'
 
 @Component({
@@ -10,6 +10,7 @@ export class UserDisplayComponent implements OnInit {
 
   @Input() filteredUser: string;
   @Input() usersNames: Array<string>;
+  @Output() selectUser = new EventEmitter();
   constructor() {
   }
 

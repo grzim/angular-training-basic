@@ -1,0 +1,6 @@
+<div>
+  selected users:
+  <div *ngFor="let userName of selectedUsers$ | async; index as i">
+    {{i}}: {{userName}}
+  </div>
+</div>

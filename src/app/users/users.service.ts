@@ -14,7 +14,10 @@ export class UsersService {
         const adam = new User('adam', 'kowalski', 45, 'it-spec');
         const bogdan = new User('bogdan', 'marianczyk', 45, 'it-spec');
         const ewa = new User('ewa', 'scholarz', 25, 'it-spec');
-        this.users.push(adam, bogdan, ewa);
+        const marcin = new User('marcin', 'kowalski', 45, 'it-spec');
+        const agata = new User('agata', 'marianczyk', 45, 'it-spec');
+        const hela = new User('hela', 'scholarz', 25, 'it-spec');
+        this.users.push(adam, bogdan, ewa, marcin, agata, hela);
     }
 
     addUser(user: User) {

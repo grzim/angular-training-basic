@@ -1,4 +1,4 @@
-<div *ngFor="let userName of usersNames; last as last" [class.highlight]="last">
+<div *ngFor="let userName of usersNames; last as last" [class.highlight]="last" (click)="selectUser.emit(userName)">
   name: {{userName}}
 </div>
 

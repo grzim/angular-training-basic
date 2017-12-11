@@ -3,5 +3,10 @@
   <app-user-sorting-buttons (sortFn)="sortFnChange($event)"></app-user-sorting-buttons>
 </div>
 <div>
-  <app-user-display [filteredUser]="filteredUser" [usersNames]="usersNames"></app-user-display>
+  <app-user-display [filteredUser]="filteredUser"
+                    [usersNames]="usersNames"
+                    (selectUser)="selectedUser$.next($event)"></app-user-display>
+</div>
+<div>
+  <app-selected-users [selectedUsers$]="selectedUsers$"></app-selected-users>
 </div>
