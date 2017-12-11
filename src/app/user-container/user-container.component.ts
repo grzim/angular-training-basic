@@ -10,8 +10,10 @@ export class UserContainerComponent implements OnInit {
 
   public filteredUser;
   public usersNames;
+  public allUsers;
   constructor(public usersService: UsersService) {
       this.usersNames = this.usersService.getAllUsers().map(({name}) => name);
+      this.allUsers = this.usersService.getAllUsers();
   }
 
   sortFnChange(sortFn) {
