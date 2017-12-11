@@ -18,7 +18,7 @@ export class UserContainerComponent implements OnInit {
   constructor(public usersService: UsersService) {
       this.usersNames = this.usersService.getAllUsers().map(({name}) => name);
       this.allUsers = this.usersService.getAllUsers();
-      this.selectedUsers$ = this.selectedUser$.scan((acc: string[], curr: string) => {
+      this.selectedUsers$ = this.selectedUser$.distinctUntilChanged().scan((acc: string[], curr: string) => {
         if (acc.length === 3) {
           acc = [curr, acc[0], acc[1]];
         }
