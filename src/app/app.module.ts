@@ -8,6 +8,16 @@ import { UserContainerComponent } from './user-container/user-container.componen
 import { UserSortingButtonsComponent } from './user-sorting-buttons/user-sorting-buttons.component';
 import { SelectedUsersComponent } from './selected-users/selected-users.component';
 import 'rxjs/';
+import { RouterModule, Routes } from '@angular/router';
+import { WelcomePageComponent } from './welcome-page/welcome-page.component'
+
+const routes: Routes = [
+    { path: '', redirectTo: 'welcome', pathMatch: 'full' },
+    { path: 'welcome', component: WelcomePageComponent },
+    { path: 'users', component: UserContainerComponent }
+];
+
+const routing = RouterModule.forRoot(routes);
 
 @NgModule({
   declarations: [
@@ -15,10 +25,12 @@ import 'rxjs/';
     UserDisplayComponent,
     UserContainerComponent,
     UserSortingButtonsComponent,
-    SelectedUsersComponent
+    SelectedUsersComponent,
+    WelcomePageComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+      routing
   ],
   providers: [UsersService],
   bootstrap: [AppComponent]
