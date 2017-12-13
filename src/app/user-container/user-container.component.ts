@@ -10,21 +10,26 @@ import { Subject } from 'rxjs/Subject'
 })
 export class UserContainerComponent implements OnInit {
 
-    public filteredUser
     public usersNames$
+    public addUser = new Subject();
     public filteredUsers$: Observable<Array<User>>
     public users$
-    public allUsers
     public sortFn = new Subject()
     public selectedUser$ = new Subject()
     public selectedUsers$: Observable<string[]>
 
     constructor(public usersService: UsersService) {
+        this.addUser.subscribe(this.usersService.addNewUser)
+
         this.users$ = this.usersService.users$;
-        this.usersNames$ = this.usersService.users$.map(users => users.map(({name}) => name));
-        this.filteredUsers$ = this.usersService.users$.combineLatest(this.sortFn,
+
+        this.usersNames$ = this.usersService.users$
+            .map(users => users.map(({name}) => name));
+
+        this.filteredUsers$ = this.usersService
+            .users$
+            .combineLatest(this.sortFn,
             (users: Array<User>, sortFn: any) => users.sort(sortFn))
-            .do(console.log)
 
         this.selectedUsers$ = this.selectedUser$
             .distinctUntilChanged()

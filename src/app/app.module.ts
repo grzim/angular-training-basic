@@ -9,7 +9,9 @@ import { UserSortingButtonsComponent } from './user-sorting-buttons/user-sorting
 import { SelectedUsersComponent } from './selected-users/selected-users.component';
 import 'rxjs/';
 import { RouterModule, Routes } from '@angular/router';
-import { WelcomePageComponent } from './welcome-page/welcome-page.component'
+import { WelcomePageComponent } from './welcome-page/welcome-page.component';
+import { UserFormComponent } from './user-form/user-form.component'
+import { FormsModule } from '@angular/forms'
 
 const routes: Routes = [
     { path: '', redirectTo: 'welcome', pathMatch: 'full' },
@@ -26,10 +28,12 @@ const routing = RouterModule.forRoot(routes);
     UserContainerComponent,
     UserSortingButtonsComponent,
     SelectedUsersComponent,
-    WelcomePageComponent
+    WelcomePageComponent,
+    UserFormComponent
   ],
   imports: [
     BrowserModule,
+      FormsModule,
       routing
   ],
   providers: [UsersService],

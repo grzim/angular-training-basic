@@ -13,8 +13,8 @@ export class UserSortingButtonsComponent implements OnInit {
   ngOnInit() {
   }
 
-    sortUsersBy(propName: string) {
-        const sortFn = (a, b) => a[propName] > b[propName] ? 1 : -1;
-        this.sortFn.emit(sortFn);
-    }
+  sortUsersBy(propName: string) {
+      const sortFn = (a, b) => a[propName] > b[propName] ? 1 : -1;
+      this.sortFn.emit(sortFn);
+  }
 }

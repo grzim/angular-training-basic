@@ -1,0 +1,15 @@
+<form #userForm="ngForm" (ngSubmit)="addUser.emit(userForm.value); userForm.reset()">
+  <label for="name">name</label>
+  <input type="text" name="name" id="name" ngModel>
+
+  <label for="surname">surname</label>
+  <input type="text" name="surname" id="surname" ngModel>
+
+  <label for="age">age</label>
+  <input type="number" name="age" id="age" ngModel>
+
+  <label for="profession">profession</label>
+  <input type="text" name="profession" id="profession" ngModel>
+
+  <button type="submit">Add user</button>
+</form>

@@ -28,7 +28,7 @@ export class UsersService {
 
         const add = (user) => (users) => [...users, user];
        // const remove = (name) => (users) => users.filter(user => user.name !== name);
-        this.users$ = this.addNewUser.mapTo(add)
+        this.users$ = this.addNewUser.map(user => add(user))
             .startWith((x) => x)
             .scan((acc: Array<User>, fn: Function) => fn(acc), initUsers);
         this.usersByAge$ = this.users$.map(users => users.reduce((acc, curr) => {
