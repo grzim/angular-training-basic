@@ -11,7 +11,8 @@ import 'rxjs/';
 import { RouterModule, Routes } from '@angular/router';
 import { WelcomePageComponent } from './welcome-page/welcome-page.component';
 import { UserFormComponent } from './user-form/user-form.component'
-import { FormsModule } from '@angular/forms'
+import { FormsModule } from '@angular/forms';
+import { CssOnClickDirective } from './css-on-click.directive'
 
 const routes: Routes = [
     { path: '', redirectTo: 'welcome', pathMatch: 'full' },
@@ -29,7 +30,8 @@ const routing = RouterModule.forRoot(routes);
     UserSortingButtonsComponent,
     SelectedUsersComponent,
     WelcomePageComponent,
-    UserFormComponent
+    UserFormComponent,
+    CssOnClickDirective
   ],
   imports: [
     BrowserModule,
