@@ -8,8 +8,8 @@ import { UsersService } from '../users/users.service'
 })
 export class UserDisplayComponent implements OnInit {
 
-  @Input() filteredUser: string;
-  @Input() usersNames: Array<string>;
+  @Input() filteredUser$;
+  @Input() usersNames$;
   @Output() selectUser = new EventEmitter();
   constructor() {
   }

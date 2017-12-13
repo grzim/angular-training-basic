@@ -1,11 +1,11 @@
 <a routerLink="/welcome">go to welcome page</a>
-{{allUsers | json}}
+{{users$ | async | json}}
 <div>
-  <app-user-sorting-buttons (sortFn)="sortFnChange($event)"></app-user-sorting-buttons>
+  <app-user-sorting-buttons (sortFn)="sortFn.next($event)"></app-user-sorting-buttons>
 </div>
 <div>
-  <app-user-display [filteredUser]="filteredUser"
-                    [usersNames]="usersNames"
+  <app-user-display [filteredUser$]="filteredUsers$"
+                    [usersNames$]="usersNames$"
                     (selectUser)="selectedUser$.next($event)"></app-user-display>
 </div>
 <div>

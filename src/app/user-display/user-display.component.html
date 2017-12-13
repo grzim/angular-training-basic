@@ -1,7 +1,7 @@
-<div *ngFor="let userName of usersNames; last as last" [class.highlight]="last" (click)="selectUser.emit(userName)">
+<div *ngFor="let userName of usersNames$ | async; last as last" [class.highlight]="last" (click)="selectUser.emit(userName)">
   name: {{userName}}
 </div>
 
 <div>
-  filteredUser: {{filteredUser}}
+  sortedUsers: {{filteredUser$ | async | json}}
 </div>

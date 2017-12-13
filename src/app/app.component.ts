@@ -8,10 +8,5 @@ import { UsersService } from './users/users.service'
 })
 export class AppComponent {
   constructor(userService: UsersService) {
-    console.log(
-        userService.getAllUsers(),
-        userService.getOldest(),
-        userService.getUsersByAge()
-    );
   }
 }
