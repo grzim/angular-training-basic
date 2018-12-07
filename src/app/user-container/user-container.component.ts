@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core'
 import { User, UsersService } from '../users/users.service'
 import { Observable } from 'rxjs/Observable'
 import { Subject } from 'rxjs/Subject'
+import { replicate } from '../helpers'
 
 @Component({
     selector: 'app-user-container',
@@ -19,7 +20,6 @@ export class UserContainerComponent implements OnInit {
     public selectedUsers$: Observable<string[]>
 
     constructor(public usersService: UsersService) {
-        this.addUser.subscribe(this.usersService.addNewUser)
 
         this.users$ = this.usersService.users$;
 
@@ -42,6 +42,10 @@ export class UserContainerComponent implements OnInit {
                 }
                 return acc
             }, [])
+
+
+        replicate(this.addUser, this.usersService.addNewUser);
+
     }
 
     ngOnInit() {
